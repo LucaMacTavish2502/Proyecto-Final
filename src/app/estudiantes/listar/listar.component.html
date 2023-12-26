@@ -1,0 +1,28 @@
+<h1>Lista de Estudiantes</h1>
+
+<div class="form-floating mb-3">
+    <input type="text" class="form-contol" placeholder="Buscar Alumno"
+    (keyup)="searchEstudiante()" [(ngModel)]="buscarEstudiante" />
+
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+ 
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let estudiante of estudiantes">
+
+            <td>{{ estudiante.estNombre }}</td>
+            <td>
+                <button routerLink="/editarperfil/{{estudiante.idEstudiantes}}" class="btn btn-primary">Editar</button>
+                <button (click)="eliminarEstudiante(estudiante)" class="btn btn-danger">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

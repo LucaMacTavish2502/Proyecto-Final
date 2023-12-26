@@ -1,0 +1,12 @@
+<h1>Editar Estado del Alumno</h1>
+<form [formGroup]="formEstudiantes">
+    <div>
+       <input class="form-control" formControlName="estNombre" type="text" name="" id=""> 
+    </div>
+    <div>
+      <button (click)="actualizarEstadodeEstudiante()" class="btn btn-primary">Editar estado</button> 
+       <button routerLink="/listarAlumnos" class="btn btn-danger">Cancelar</button> 
+    </div>
+    
+   
+</form>
