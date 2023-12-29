@@ -18,7 +18,7 @@
     <tbody>
         <tr *ngFor="let estudiante of estudiantes">
 
-            <td>{{ estudiante.estNombre }}</td>
+            <td>{{ estudiante.esNombre }}</td>
             <td>
                 <button routerLink="/editarperfil/{{estudiante.idEstudiantes}}" class="btn btn-primary">Editar</button>
                 <button (click)="eliminarEstudiante(estudiante)" class="btn btn-danger">Eliminar</button>

@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Router, ActivatedRoute, RouterLink } from "@angular/router";
+import { EstudiantesService } from 'src/app/servicios/estudiantes.service';
 
 @Component({
   selector: 'app-listar',
@@ -7,6 +8,7 @@ import { Router, ActivatedRoute, RouterLink } from "@angular/router";
   styleUrls: ['./listar.component.css']
 })
 export class ListarComponent implements OnInit{
+  estudiantesService: any;
 searchEstudiante() {
 throw new Error('Method not implemented.');
 }
@@ -28,7 +30,7 @@ throw new Error('Method not implemented.');
     private listarComponent: ListarComponent ){}
 
 cargarTabla(){
-  this.listarComponent.getEstudiante().subscribe(
+  this.estudiantesService.getEstudiante().subscribe(
     (data: any[]) => {
       this.estudiante = data;
     },
@@ -39,8 +41,8 @@ cargarTabla(){
 }
 
 eliminarEstudiantes(estudiante: any): void {
-  if (confirm("¿Está seguro que desea eliminar a " + estudiante.nombre + "?")) {
-    this.listarComponent.deleteEstudiante(estudiante.idEstudiantes).subscribe(
+  if (confirm("¿Está seguro que desea eliminar a "+estudiante.esNombre+"?")) {
+    this.estudiantesService.deleteEstudiante(estudiante.idEstudiantes).subscribe(
       (data: any) => {
         this.cargarTabla();
       },
@@ -56,7 +58,7 @@ eliminarEstudiantes(estudiante: any): void {
 
 searchEstudiantes():void{
   if(this.buscarEstudiante){
-    this.listarComponent.getEstudiantesByNombre(this.buscarEstudiante).subscribe(
+    this.estudiantesService.getEstudiantesByNombre(this.buscarEstudiante).subscribe(
       (data: any) => {
         this.estudiantes = data;
       },

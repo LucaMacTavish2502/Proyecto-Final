@@ -10,7 +10,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { ListarComponent } from './estudiantes/listar/listar.component';
 import { EditarComponent } from './estudiantes/editar/editar.component';
 import { CargarComponent } from './estudiantes/cargar/cargar.component';
-import { Observable } from 'rxjs';
+import { EstudiantesService } from './servicios/estudiantes.service';
 
 @NgModule({
   declarations: [
